@@ -288,10 +288,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let globalIntensity = { value: 1.0 };
     let startTime = Date.now();
 
+    const getPixelRatio = () => window.innerWidth <= 768 ? 1 : Math.min(window.devicePixelRatio, 2);
+
     const resizeCanvas = () => {
         const rect = canvas.getBoundingClientRect();
-        canvas.width = rect.width * window.devicePixelRatio;
-        canvas.height = rect.height * window.devicePixelRatio;
+        const pr = getPixelRatio();
+        canvas.width = rect.width * pr;
+        canvas.height = rect.height * pr;
         gl.viewport(0, 0, canvas.width, canvas.height);
     };
 
@@ -300,8 +303,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const updateMousePosition = (clientX, clientY) => {
         const rect = canvas.getBoundingClientRect();
-        mouseX = (clientX - rect.left) * window.devicePixelRatio;
-        mouseY = (rect.height - (clientY - rect.top)) * window.devicePixelRatio;
+        const pr = getPixelRatio();
+        mouseX = (clientX - rect.left) * pr;
+        mouseY = (rect.height - (clientY - rect.top)) * pr;
 
         gsap.to(globalIntensity, {
             value: 1.15,

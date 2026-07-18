@@ -272,7 +272,7 @@ main { flex: 1; }
   100% { box-shadow: 0 0 10px rgba(99,102,241,0.2); }
 }
 
-/* ---------------- Mobile Responsiveness ---------------- */
+/* ---------------- Mobile Responsiveness & Performance ---------------- */
 @media (max-width: 768px) {
   .app-navbar .navbar-brand {
     font-size: 1.5rem !important;
@@ -289,6 +289,22 @@ main { flex: 1; }
   }
   .btn {
     padding: 0.5rem 1rem !important;
+  }
+  
+  /* Disable glow pulse on mobile to save GPU */
+  .card, .nav-link-gsap, .btn {
+    animation: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
