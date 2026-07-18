@@ -51,10 +51,19 @@
   </div>
 
   <!-- Connect Button -->
-  <a href="{{ url_for('validate') }}" class="px-6 py-2 rounded-full border border-white text-white text-xs md:text-sm font-semibold hover:bg-white hover:text-[#0038FF] transition-colors" style="text-decoration: none;">
+  <a href="{{ url_for('validate') }}" class="hidden md:flex px-6 py-2 rounded-full border border-white text-white text-xs md:text-sm font-semibold hover:bg-white hover:text-[#0038FF] transition-colors" style="text-decoration: none;">
     Mulai Sekarang
   </a>
 </nav>
+
+<!-- Mobile Links (Scrollable) -->
+<div class="md:hidden flex flex-wrap justify-center gap-2 w-full px-4 pb-4">
+  <a href="{{ url_for('index') }}" class="px-3 py-1.5 rounded-full border {% if active_page=='home' %}bg-white/20 border-white{% else %}border-white/30 hover:bg-white/10{% endif %} text-white text-[10px] font-semibold transition-colors" style="text-decoration: none;">Home</a>
+  <a href="{{ url_for('validate') }}" class="px-3 py-1.5 rounded-full border {% if active_page=='validate' %}bg-white/20 border-white{% else %}border-white/30 hover:bg-white/10{% endif %} text-white text-[10px] font-semibold transition-colors" style="text-decoration: none;">Validasi</a>
+  <a href="{{ url_for('grammar_page') }}" class="px-3 py-1.5 rounded-full border {% if active_page=='grammar' %}bg-white/20 border-white{% else %}border-white/30 hover:bg-white/10{% endif %} text-white text-[10px] font-semibold transition-colors" style="text-decoration: none;">Grammar</a>
+  <a href="{{ url_for('history') }}" class="px-3 py-1.5 rounded-full border {% if active_page=='history' %}bg-white/20 border-white{% else %}border-white/30 hover:bg-white/10{% endif %} text-white text-[10px] font-semibold transition-colors" style="text-decoration: none;">Riwayat</a>
+  <a href="{{ url_for('about') }}" class="px-3 py-1.5 rounded-full border {% if active_page=='about' %}bg-white/20 border-white{% else %}border-white/30 hover:bg-white/10{% endif %} text-white text-[10px] font-semibold transition-colors" style="text-decoration: none;">Tentang</a>
+</div>
 
 <!-- ================= FLASH MESSAGES ================= -->
 <div class="container mt-3">
