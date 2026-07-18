@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}About - CFG Pantun Validator{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="text-center mb-5 fade-in-up">
+    <h2 class="section-title">Tentang Proyek</h2>
+    <p class="text-muted mt-3">Implementasi Context-Free Grammar (CFG) untuk Validasi Struktur Pantun Berbasis Web</p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-lg-8">
+      <div class="card p-4 mb-4">
+        <h5 class="fw-bold mb-3"><i class="bi bi-journal-text me-2"></i>Latar Belakang</h5>
+        <p>
+          Proyek ini dibangun sebagai bagian dari Ujian Akhir Semester (UAS)
+          mata kuliah <strong>Teori Bahasa dan Otomata</strong>. Tujuannya
+          adalah menerapkan konsep <strong>Context-Free Grammar (CFG)</strong>
+          secara nyata untuk memvalidasi struktur pantun — salah satu bentuk
+          puisi lama dalam sastra Melayu/Indonesia yang memiliki aturan
+          struktural baku (4 baris, 4–12 kata per baris, pola Sampiran-Isi).
+        </p>
+        <p class="mb-0">
+          Berbeda dengan pendekatan berbasis regular expression (regex) yang
+          umum dipakai untuk validasi teks sederhana, proyek ini secara
+          khusus mengimplementasikan <strong>Recursive Descent Parser</strong>
+          (Top-Down Parser) yang menurunkan struktur pantun langkah demi
+          langkah sesuai aturan produksi CFG — sehingga proses validasinya
+          dapat ditelusuri dan dijelaskan secara formal, sesuai kaidah teori
+          bahasa formal dan automata.
+        </p>
+      </div>
+
+      <div class="card p-4 mb-4">
+        <h5 class="fw-bold mb-3"><i class="bi bi-diagram-3 me-2"></i>Metodologi</h5>
+        <ol>
+          <li class="mb-2"><strong>Tokenisasi</strong> — Teks input dipecah menjadi baris, lalu setiap baris dipecah menjadi token kata (whitespace-based).</li>
+          <li class="mb-2"><strong>Parsing Top-Down</strong> — Parser mencoba menurunkan token-token tersebut mulai dari simbol awal <span class="rule-code">Pantun</span> hingga ke simbol terminal <span class="rule-code">Kata</span>.</li>
+          <li class="mb-2"><strong>Pemeriksaan Semantik</strong> — Selain struktur produksi, parser juga memeriksa batasan tambahan (jumlah baris = 4, jumlah kata per baris 4–12).</li>
+          <li class="mb-0"><strong>Pelaporan</strong> — Hasil parsing (trace derivation) beserta status valid/invalid ditampilkan ke pengguna dan disimpan ke database.</li>
+        </ol>
+      </div>
+
+      <div class="card p-4">
+        <h5 class="fw-bold mb-3"><i class="bi bi-stack me-2"></i>Teknologi yang Digunakan</h5>
+        <div>
+          <span class="tech-pill"><i class="bi bi-filetype-py me-1"></i>Python Flask</span>
+          <span class="tech-pill"><i class="bi bi-filetype-html me-1"></i>HTML5</span>
+          <span class="tech-pill"><i class="bi bi-filetype-css me-1"></i>CSS3</span>
+          <span class="tech-pill"><i class="bi bi-bootstrap me-1"></i>Bootstrap 5</span>
+          <span class="tech-pill"><i class="bi bi-filetype-js me-1"></i>JavaScript</span>
+          <span class="tech-pill"><i class="bi bi-database me-1"></i>SQLite</span>
+          <span class="tech-pill"><i class="bi bi-rocket-takeoff me-1"></i>Gunicorn</span>
+          <span class="tech-pill"><i class="bi bi-cloud-arrow-up me-1"></i>Railway / VPS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card p-4 mb-4">
+        <h6 class="fw-bold mb-3"><i class="bi bi-mortarboard me-2"></i>Informasi Akademik</h6>
+        <ul class="list-unstyled mb-0 small">
+          <li class="mb-2"><strong>Mata Kuliah:</strong> Teori Bahasa dan Otomata</li>
+          <li class="mb-2"><strong>Jenis Tugas:</strong> Proyek UAS</li>
+          <li class="mb-2"><strong>Topik:</strong> Context-Free Grammar (CFG)</li>
+          <li class="mb-0"><strong>Studi Kasus:</strong> Validasi Struktur Pantun</li>
+        </ul>
+      </div>
+      <div class="card p-4">
+        <h6 class="fw-bold mb-3"><i class="bi bi-lightbulb me-2"></i>Potensi Pengembangan</h6>
+        <ul class="small mb-0">
+          <li class="mb-2">Validasi rima akhir (a-b-a-b) sebagai aturan tambahan.</li>
+          <li class="mb-2">Deteksi keterkaitan makna Sampiran dan Isi (NLP lanjutan).</li>
+          <li class="mb-2">Ekspor hasil validasi ke PDF/CSV.</li>
+          <li class="mb-0">Dukungan multi-bahasa daerah.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

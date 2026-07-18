@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Riwayat Validasi - CFG Pantun Validator{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="section-title mb-2">Riwayat Validasi</h2>
+      <p class="text-muted mb-0">Seluruh pantun yang pernah divalidasi tersimpan di sini (database SQLite).</p>
+    </div>
+    {% if riwayat|length > 0 %}
+    <form id="formHapusRiwayat" method="POST" action="{{ url_for('history_clear') }}">
+      <button type="submit" class="btn btn-outline-danger mt-3 mt-md-0">
+        <i class="bi bi-trash3 me-1"></i>Hapus Semua Riwayat
+      </button>
+    </form>
+    {% endif %}
+  </div>
+
+  <div class="card p-3 p-md-4">
+    {% if riwayat|length == 0 %}
+      <div class="text-center py-5">
+        <i class="bi bi-inbox" style="font-size: 3rem; color: var(--clr-primary); opacity:0.5;"></i>
+        <p class="text-muted mt-3 mb-0">Belum ada riwayat validasi. Silakan coba validasi pantun terlebih dahulu.</p>
+        <a href="{{ url_for('validate') }}" class="btn btn-gradient mt-3">
+          <i class="bi bi-check2-square me-1"></i>Validasi Sekarang
+        </a>
+      </div>
+    {% else %}
+      <div class="table-responsive">
+        <table class="table table-hover table-history align-middle">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Isi Pantun</th>
+              <th>Jumlah Baris</th>
+              <th>Status</th>
+              <th>Alasan</th>
+              <th>Tanggal</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in riwayat %}
+            <tr>
+              <td>{{ r['id'] }}</td>
+              <td style="white-space: pre-line; max-width: 260px;">{{ r['isi_pantun'] }}</td>
+              <td class="text-center">{{ r['jumlah_baris'] }}</td>
+              <td>
+                {% if r['status'] == 'Valid' %}
+                  <span class="badge badge-status-valid">Valid</span>
+                {% else %}
+                  <span class="badge badge-status-invalid">Invalid</span>
+                {% endif %}
+              </td>
+              <td class="small text-muted" style="max-width: 260px;">{{ r['alasan'] }}</td>
+              <td class="small text-nowrap">{{ r['tanggal_validasi'] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

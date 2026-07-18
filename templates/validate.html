@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}Validasi Pantun - CFG Pantun Validator{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+  <div class="text-center mb-5 fade-in-up">
+    <h2 class="section-title">Validasi Struktur Pantun</h2>
+    <p class="text-muted mt-3">Masukkan pantun (4 baris) untuk diperiksa menggunakan Recursive Descent Parser berbasis CFG.</p>
+  </div>
+
+  <div class="row g-4">
+    <!-- ============ FORM INPUT ============ -->
+    <div class="col-lg-6">
+      <div class="card p-4 h-100">
+        <form method="POST" action="{{ url_for('validate') }}">
+          <label for="pantun_text" class="form-label fw-semibold">
+            <i class="bi bi-pencil-square me-1"></i> Teks Pantun (4 baris)
+          </label>
+          <textarea
+            class="form-control pantun-textarea mb-2"
+            id="pantun_text"
+            name="pantun_text"
+            rows="6"
+            placeholder="Tulis 4 baris pantun di sini, satu baris per baris...">{{ teks_input }}</textarea>
+
+          <div id="liveInfo" class="small text-muted mb-3"></div>
+
+          <div class="d-flex flex-wrap gap-2">
+            <button type="submit" class="btn btn-gradient px-4">
+              <i class="bi bi-play-fill me-1"></i> Validasi
+            </button>
+            <button type="button" id="btnReset" class="btn btn-outline-light px-4">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+            </button>
+            <button type="button" id="btnContoh" data-contoh="{{ contoh }}" class="btn btn-outline-gradient px-4">
+              <i class="bi bi-lightbulb me-1"></i> Contoh Pantun
+            </button>
+          </div>
+        </form>
+
+        <hr class="my-4">
+        <h6 class="fw-bold mb-2"><i class="bi bi-info-circle me-1"></i>Aturan Singkat</h6>
+        <ul class="text-muted small mb-0">
+          <li>Pantun terdiri dari <strong>4 baris</strong>.</li>
+          <li>Setiap baris memiliki <strong>4–12 kata</strong>.</li>
+          <li>Baris 1–2 = <strong>Sampiran</strong>, Baris 3–4 = <strong>Isi</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============ HASIL VALIDASI ============ -->
+    <div class="col-lg-6">
+      {% if hasil %}
+      <div class="card p-4 h-100 fade-in-up">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h5 class="fw-bold mb-0"><i class="bi bi-clipboard2-check me-1"></i>Hasil Validasi</h5>
+          {% if hasil.valid %}
+            <span class="status-badge status-valid"><i class="bi bi-check-circle-fill me-1"></i>VALID</span>
+          {% else %}
+            <span class="status-badge status-invalid"><i class="bi bi-x-circle-fill me-1"></i>INVALID</span>
+          {% endif %}
+        </div>
+
+        <p class="mb-3"><strong>Jumlah baris terdeteksi:</strong> {{ hasil.jumlah_baris }}</p>
+
+        <!-- Detail per baris -->
+        <h6 class="fw-bold mt-3 mb-2">Detail Setiap Baris</h6>
+        {% for b in hasil.detail_baris %}
+          <div class="baris-row {% if not b.valid_jumlah_kata or not b.berhasil_diturunkan %}invalid-line{% endif %}">
+            <div class="d-flex justify-content-between flex-wrap">
+              <span><strong>Baris {{ b.baris_ke }}</strong> ({{ b.peran }})</span>
+              <span class="badge {% if b.valid_jumlah_kata %}bg-success{% else %}bg-danger{% endif %}">
+                {{ b.jumlah_kata }} kata
+              </span>
+            </div>
+            <div class="small text-muted mt-1">"{{ b.teks }}"</div>
+          </div>
+        {% endfor %}
+
+        <!-- Alasan -->
+        {% if not hasil.valid %}
+          <h6 class="fw-bold mt-4 mb-2 text-danger"><i class="bi bi-exclamation-triangle me-1"></i>Alasan Ditolak</h6>
+          <ul class="mb-3">
+            {% for err in hasil.errors %}
+              <li class="text-danger small">{{ err }}</li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <div class="alert alert-success mt-4 mb-3">
+            <i class="bi bi-check-circle me-1"></i>
+            Seluruh baris memenuhi aturan CFG: struktur Sampiran-Isi benar dan jumlah kata setiap baris berada pada rentang 4–12.
+          </div>
+        {% endif %}
+
+        <!-- Proses Parsing -->
+        <h6 class="fw-bold mt-3 mb-2"><i class="bi bi-diagram-3 me-1"></i>Proses Parsing (Derivation Trace)</h6>
+        <div>
+          {% for step in hasil.trace %}
+            <div class="trace-step">
+              <span class="rule-code">{{ step.id }}</span>
+              <span class="fw-semibold ms-1">{{ step.rule }}</span>
+              <div class="small text-muted">{{ step.keterangan }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% else %}
+      <div class="card p-4 h-100 d-flex align-items-center justify-content-center text-center">
+        <i class="bi bi-clipboard2-data" style="font-size: 3rem; color: var(--clr-primary); opacity:0.5;"></i>
+        <p class="text-muted mt-3 mb-0">Hasil validasi akan muncul di sini setelah Anda menekan tombol "Validasi".</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

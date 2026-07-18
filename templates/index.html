@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}Home - CFG Pantun Validator{% endblock %}
+
+{% block content %}
+
+<!-- ============ HERO ============ -->
+<section style="min-height: calc(100vh - 76px); position: relative; width: 100%; display: flex; flex-direction: column;">
+  <div class="container" style="position: relative; z-index: 10; flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2rem 0;">
+    <!-- Top text -->
+    <div class="text-start mt-4">
+      <p class="climate-crisis" style="color: #d1d5db; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0; margin-bottom: 0;">
+        Break the boundaries,
+      </p>
+      <p class="climate-crisis" style="color: #d1d5db; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0; margin-bottom: 0;">
+        Unleash your potential
+      </p>
+    </div>
+
+    <!-- Bottom content -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+      <nav class="text-start mb-4 mb-md-0 d-flex flex-column">
+        <a href="{{ url_for('validate') }}" class="nav-link-gsap climate-crisis mb-2" style="background: linear-gradient(135deg, #ffffff, #cccccc); -webkit-background-clip: text; background-clip: text; color: transparent; display: block; font-size: clamp(1.5rem, 3.5vw, 3.2rem); line-height: 1.2; cursor: pointer; transition: all 0.3s; transform-style: preserve-3d; perspective: 1000px; text-decoration: none;">
+          MULAI VALIDASI
+        </a>
+        <a href="{{ url_for('grammar_page') }}" class="nav-link-gsap climate-crisis" style="background: linear-gradient(135deg, #ffffff, #cccccc); -webkit-background-clip: text; background-clip: text; color: transparent; display: block; font-size: clamp(1.5rem, 3.5vw, 3.2rem); line-height: 1.2; cursor: pointer; transition: all 0.3s; transform-style: preserve-3d; perspective: 1000px; text-decoration: none;">
+          LIHAT GRAMMAR
+        </a>
+      </nav>
+
+      <div class="text-md-end text-start max-w-xs" style="color: #d1d5db; max-width: 350px;">
+        <p class="mb-2" style="color: white; font-weight: 600; font-size: 0.95rem;">Implementasi <span class="text-warning">Context-Free Grammar</span></p>
+        <p class="mb-2" style="color: white; font-weight: 600; font-size: 0.95rem;">untuk Validasi Struktur Pantun</p>
+        <p class="mb-4" style="color: #9ca3af; font-size: 0.85rem;">Proyek UAS Teori Bahasa dan Otomata</p>
+        <p class="mb-1" style="color: #9ca3af; font-size: 0.85rem;">Memvalidasi struktur pantun otomatis</p>
+        <p class="mb-1" style="color: #9ca3af; font-size: 0.85rem;">menggunakan Recursive Descent Parser.</p>
+        <p class="mt-3" style="background: linear-gradient(to right, #facc15, #fef08a); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: bold; margin-bottom: 0;">
+          CFG Pantun Validator
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="container py-5">
+  <div class="text-center mb-5">
+    <h2 class="section-title">Fitur Utama</h2>
+    <p class="text-muted mt-3">Semua yang Anda butuhkan untuk memahami dan menguji validitas pantun secara formal.</p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 p-4" style="background: rgba(20, 15, 35, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+        <div class="feature-icon" style="background: rgba(255,255,255,0.1); color: #a5b4fc;"><i class="bi bi-check2-square"></i></div>
+        <h5 class="fw-bold">Validasi Pantun</h5>
+        <p class="text-muted mb-0">Masukkan pantun dan dapatkan status Valid/Invalid lengkap dengan alasannya.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 p-4" style="background: rgba(20, 15, 35, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+        <div class="feature-icon" style="background: rgba(255,255,255,0.1); color: #a5b4fc;"><i class="bi bi-diagram-2"></i></div>
+        <h5 class="fw-bold">Grammar CFG Transparan</h5>
+        <p class="text-muted mb-0">Seluruh aturan produksi CFG ditampilkan secara terbuka dan mudah dipahami.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 p-4" style="background: rgba(20, 15, 35, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+        <div class="feature-icon" style="background: rgba(255,255,255,0.1); color: #a5b4fc;"><i class="bi bi-diagram-3"></i></div>
+        <h5 class="fw-bold">Recursive Descent Parser</h5>
+        <p class="text-muted mb-0">Proses parsing top-down ditelusuri langkah demi langkah, bukan sekadar regex.</p>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100 p-4" style="background: rgba(20, 15, 35, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
+        <div class="feature-icon" style="background: rgba(255,255,255,0.1); color: #a5b4fc;"><i class="bi bi-clock-history"></i></div>
+        <h5 class="fw-bold">Riwayat Validasi</h5>
+        <p class="text-muted mb-0">Setiap hasil validasi tersimpan otomatis ke database SQLite untuk ditinjau ulang.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APA ITU CFG ============ -->
+<section class="py-5" style="position: relative;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h2 class="section-title mb-4">Apa itu Context-Free Grammar?</h2>
+        <p class="text-light">
+          Context-Free Grammar (CFG) adalah salah satu formalisme dalam Teori
+          Bahasa dan Otomata yang mendefinisikan struktur suatu bahasa melalui
+          sekumpulan aturan produksi. Setiap kalimat dalam bahasa tersebut
+          dapat diturunkan (di-<em>derive</em>) dari simbol awal (start symbol)
+          menggunakan aturan-aturan tersebut secara rekursif.
+        </p>
+        <p class="mb-0 text-light">
+          Pada aplikasi ini, struktur pantun (4 baris: 2 baris Sampiran dan 2
+          baris Isi, masing-masing 4–12 kata) dimodelkan sebagai sebuah CFG,
+          lalu divalidasi menggunakan <strong>Recursive Descent Parser</strong>
+          — sebuah teknik Top-Down Parsing klasik.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <div class="grammar-box" style="background: rgba(15, 10, 25, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
+<pre class="mb-0">Pantun    -&gt; Sampiran Isi
+Sampiran  -&gt; Baris Baris
+Isi       -&gt; Baris Baris
+Baris     -&gt; Kalimat
+Kalimat   -&gt; Kata Kalimat | Kata</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="container py-5 text-center mb-5">
+  <h3 class="fw-bold mb-3">Siap menguji pantun Anda?</h3>
+  <p class="text-muted mb-4">Coba validasi pantun favorit Anda dan lihat bagaimana parser menelusuri strukturnya.</p>
+  <a href="{{ url_for('validate') }}" class="btn btn-gradient btn-lg px-5" style="box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);">
+    <i class="bi bi-arrow-right-circle me-2"></i>Coba Sekarang
+  </a>
+</section>
+{% endblock %}
+

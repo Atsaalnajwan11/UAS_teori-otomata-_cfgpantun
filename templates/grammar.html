@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Grammar CFG - CFG Pantun Validator{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="text-center mb-5 fade-in-up">
+    <h2 class="section-title">Context-Free Grammar (CFG) Pantun</h2>
+    <p class="text-muted mt-3">Aturan produksi formal yang digunakan oleh Recursive Descent Parser.</p>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-lg-5">
+      <div class="grammar-box mb-4">
+        <pre class="mb-0">{{ grammar_text }}</pre>
+      </div>
+      <div class="card p-4">
+        <h6 class="fw-bold mb-3"><i class="bi bi-rulers me-1"></i>Aturan Semantik Tambahan</h6>
+        <ul class="mb-0">
+          {% for aturan in aturan_semantik %}
+            <li class="mb-2">{{ aturan }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-lg-7">
+      <div class="card p-4">
+        <h6 class="fw-bold mb-3"><i class="bi bi-list-ol me-1"></i>Penjelasan Setiap Aturan Produksi</h6>
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr>
+                <th style="width:60px;">ID</th>
+                <th>Aturan Produksi</th>
+                <th>Keterangan</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in produksi %}
+              <tr>
+                <td><span class="rule-code">{{ p.id }}</span></td>
+                <td class="fw-semibold">{{ p.rule }}</td>
+                <td class="text-muted small">{{ p.keterangan }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card p-4 mt-4">
+        <h6 class="fw-bold mb-3"><i class="bi bi-diagram-3 me-1"></i>Contoh Pohon Penurunan (Parse Tree)</h6>
+        <pre class="small mb-0" style="line-height:1.8;">
+Pantun
+├── Sampiran
+│   ├── Baris (1) → Kalimat → Kata Kalimat → ... → Kata
+│   └── Baris (2) → Kalimat → Kata Kalimat → ... → Kata
+└── Isi
+    ├── Baris (3) → Kalimat → Kata Kalimat → ... → Kata
+    └── Baris (4) → Kalimat → Kata Kalimat → ... → Kata
+        </pre>
+        <p class="text-muted small mt-3 mb-0">
+          Parser menurunkan setiap Kalimat secara rekursif: setiap Kata
+          diikuti sisa Kalimat, hingga akhirnya berhenti pada satu Kata
+          terakhir (basis rekursi). Proses ini identik dengan definisi
+          <span class="rule-code">Kalimat → Kata Kalimat | Kata</span>.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
