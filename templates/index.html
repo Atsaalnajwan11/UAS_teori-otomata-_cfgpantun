@@ -2,124 +2,231 @@
 {% block title %}Home - CFG Pantun Validator{% endblock %}
 
 {% block content %}
+<div class="min-h-screen bg-[#0038FF] flex flex-col font-sans selection:bg-[#CCFF00] selection:text-black relative overflow-hidden w-full" style="font-family: Arial, sans-serif;">
+  
+  <!-- Background Grid -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0"></div>
 
-<!-- ============ HERO ============ -->
-<section style="min-height: calc(100vh - 76px); position: relative; width: 100%; display: flex; flex-direction: column;">
-  <div class="container" style="position: relative; z-index: 10; flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2rem 0;">
-    <!-- Top text -->
-    <div class="text-start mt-4">
-      <p class="climate-crisis" style="color: #d1d5db; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0; margin-bottom: 0;">
-        Break the boundaries,
-      </p>
-      <p class="climate-crisis" style="color: #d1d5db; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0; margin-bottom: 0;">
-        Unleash your potential
-      </p>
+
+  <!-- Hero Section -->
+  <main class="flex-1 relative z-10 pt-8 pb-32 md:pt-12 md:pb-48 px-4 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto">
+    
+    <!-- Massive Typography & Elements Container -->
+    <div class="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10 mt-4 mb-16">
+      
+      <!-- Text Stack -->
+      <div class="w-full flex flex-col items-center relative z-10 space-y-2 md:space-y-4">
+        
+        <!-- CFG -->
+        <div class="w-full flex justify-center -translate-x-12 md:-translate-x-24 relative z-30">
+          <h1 
+            class="text-[clamp(4.5rem,12vw,160px)] font-black leading-[0.85] tracking-tighter text-[#CCFF00] m-0 p-0 uppercase"
+            style="font-family: 'Arial Black', Impact, sans-serif; text-shadow: 1px 1px 0 #001A99, 2px 2px 0 #001A99, 3px 3px 0 #001A99, 4px 4px 0 #001A99, 5px 5px 0 #001A99, 6px 6px 0 #001A99, 7px 7px 0 #001A99, 8px 8px 0 #001A99, 9px 9px 0 #001A99, 10px 10px 0 #001A99, 11px 11px 0 #001A99, 12px 12px 0 #001A99, 13px 13px 0 #001A99, 14px 14px 0 #001A99;"
+          >
+            CFG
+          </h1>
+        </div>
+        
+        <!-- PANTUN -->
+        <div class="w-full flex justify-center relative z-20">
+          <h1 
+            class="text-[clamp(5rem,15vw,220px)] font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase"
+            style="font-family: 'Arial Black', Impact, sans-serif; text-shadow: 1px 1px 0 #001A99, 2px 2px 0 #001A99, 3px 3px 0 #001A99, 4px 4px 0 #001A99, 5px 5px 0 #001A99, 6px 6px 0 #001A99, 7px 7px 0 #001A99, 8px 8px 0 #001A99, 9px 9px 0 #001A99, 10px 10px 0 #001A99, 11px 11px 0 #001A99, 12px 12px 0 #001A99, 13px 13px 0 #001A99, 14px 14px 0 #001A99;"
+          >
+            PANTUN
+          </h1>
+        </div>
+        
+        <!-- VALIDATOR -->
+        <div class="w-full flex justify-center translate-x-12 md:translate-x-24 relative z-10">
+          <h1 
+            class="text-[clamp(4.5rem,12vw,160px)] font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase"
+            style="font-family: 'Arial Black', Impact, sans-serif; text-shadow: 1px 1px 0 #001A99, 2px 2px 0 #001A99, 3px 3px 0 #001A99, 4px 4px 0 #001A99, 5px 5px 0 #001A99, 6px 6px 0 #001A99, 7px 7px 0 #001A99, 8px 8px 0 #001A99, 9px 9px 0 #001A99, 10px 10px 0 #001A99, 11px 11px 0 #001A99, 12px 12px 0 #001A99, 13px 13px 0 #001A99, 14px 14px 0 #001A99;"
+          >
+            VALIDATOR
+          </h1>
+        </div>
+
+      </div>
+
+      <!-- Absolute Overlays (Cards, Arrows, Badge) -->
+      <div class="absolute inset-0 w-full h-full pointer-events-none">
+        
+        <!-- Floating Glass Card 1 (Bottom Left) -->
+        <div class="absolute bottom-[-10%] left-[-5%] md:left-[-15%] xl:left-[-20%] md:bottom-[10%] z-30 pointer-events-auto shadow-2xl hover:rotate-0 transition-transform duration-500" style="animation: float1 5s ease-in-out infinite;">
+          <div class="w-40 md:w-52 aspect-[3/3.5] bg-white/20 backdrop-blur-md border border-white/40 rounded-[2rem] p-5 flex flex-col items-center justify-center">
+            <div class="w-16 h-16 md:w-24 md:h-24 bg-[#D2B48C] rounded-full flex items-center justify-center mb-4 shadow-inner border-[3px] border-white/50 overflow-hidden">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=D2B48C" alt="Avatar" class="w-full h-full object-cover" />
+            </div>
+            <div class="text-center mt-2">
+              <p class="font-bold text-sm md:text-lg text-white m-0">pantun.cfg</p>
+              <p class="text-[10px] md:text-xs text-white/80 mt-1 m-0">Syntax Valid</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Glass Card 2 (Top Right) -->
+        <div class="absolute top-[0%] right-[-5%] md:right-[-15%] xl:right-[-20%] md:top-[10%] z-30 pointer-events-auto shadow-2xl hover:rotate-0 transition-transform duration-500" style="animation: float2 6s ease-in-out infinite 1s;">
+          <div class="w-40 md:w-52 aspect-[3/3.5] bg-white/20 backdrop-blur-md border border-white/40 rounded-[2rem] p-5 flex flex-col items-center justify-center">
+            <div class="w-16 h-16 md:w-24 md:h-24 bg-[#2C3E50] rounded-full flex items-center justify-center mb-4 shadow-inner border-[3px] border-white/50 overflow-hidden">
+              <img src="https://api.dicebear.com/7.x/pixel-art/svg?seed=John" alt="Avatar" class="w-full h-full object-cover scale-150" />
+            </div>
+            <div class="text-center mt-2">
+              <p class="font-bold text-sm md:text-lg text-white m-0">rules.cfg</p>
+              <p class="text-[10px] md:text-xs text-white/80 mt-1 m-0">293 Parsed</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Arrow Left -->
+        <div class="absolute bottom-[0%] left-[0%] md:left-[10%] w-24 h-24 md:w-32 md:h-32 z-20">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-[#CCFF00] stroke-current overflow-visible" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10,90 C 10,40 40,20 60,50 C 70,65 80,75 95,70" />
+            <path d="M80,55 L95,70 L85,85" />
+          </svg>
+        </div>
+
+        <!-- Decorative Arrow Right -->
+        <div class="absolute top-[5%] right-[0%] md:right-[10%] w-24 h-24 md:w-32 md:h-32 z-20">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-[#CCFF00] stroke-current overflow-visible" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M90,10 C 80,60 60,80 40,60 C 20,40 40,20 60,30 C 80,40 70,70 50,80" />
+            <path d="M65,75 L50,80 L55,65" />
+          </svg>
+        </div>
+
+        <!-- Circular Badge -->
+        <div class="absolute bottom-[-15%] right-[-5%] md:right-[-10%] xl:right-[-15%] md:bottom-[0%] z-40 pointer-events-auto">
+          <a href="{{ url_for('validate') }}" class="relative w-28 h-28 md:w-36 md:h-36 bg-[#CCFF00] rounded-full flex items-center justify-center shadow-xl rotate-12 hover:scale-105 transition-transform cursor-pointer border-[3px] border-black/5" style="text-decoration: none;">
+            <div class="absolute inset-1 animate-[spin_10s_linear_infinite]">
+              <svg viewBox="0 0 100 100" class="w-full h-full">
+                <path id="circlePath" d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" fill="none" />
+                <text class="text-[11px] font-black tracking-[0.18em] uppercase" fill="black">
+                  <textPath href="#circlePath" startOffset="0%">
+                    MULAI SEKARANG CEK • MULAI SEKARANG CEK • 
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg viewBox="0 0 100 100" class="w-10 h-10 text-black stroke-current overflow-visible" fill="none" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20,80 Q 40,50 30,30 T 80,20" />
+                <path d="M60,10 L80,20 L70,40" />
+              </svg>
+            </div>
+          </a>
+        </div>
+
+      </div>
     </div>
+  </main>
 
-    <!-- Bottom content -->
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
-      <nav class="text-start mb-4 mb-md-0 d-flex flex-column">
-        <a href="{{ url_for('validate') }}" class="nav-link-gsap climate-crisis mb-2" style="background: linear-gradient(135deg, #ffffff, #cccccc); -webkit-background-clip: text; background-clip: text; color: transparent; display: block; font-size: clamp(1.5rem, 3.5vw, 3.2rem); line-height: 1.2; cursor: pointer; transition: all 0.3s; transform-style: preserve-3d; perspective: 1000px; text-decoration: none;">
-          MULAI VALIDASI
-        </a>
-        <a href="{{ url_for('grammar_page') }}" class="nav-link-gsap climate-crisis" style="background: linear-gradient(135deg, #ffffff, #cccccc); -webkit-background-clip: text; background-clip: text; color: transparent; display: block; font-size: clamp(1.5rem, 3.5vw, 3.2rem); line-height: 1.2; cursor: pointer; transition: all 0.3s; transform-style: preserve-3d; perspective: 1000px; text-decoration: none;">
-          LIHAT GRAMMAR
-        </a>
-      </nav>
-
-      <div class="text-md-end text-start max-w-xs" style="color: #d1d5db; max-width: 350px;">
-        <p class="mb-2" style="color: white; font-weight: 600; font-size: 0.95rem;">Implementasi <span class="text-warning">Context-Free Grammar</span></p>
-        <p class="mb-2" style="color: white; font-weight: 600; font-size: 0.95rem;">untuk Validasi Struktur Pantun</p>
-        <p class="mb-4" style="color: #9ca3af; font-size: 0.85rem;">Proyek UAS Teori Bahasa dan Otomata</p>
-        <p class="mb-1" style="color: #9ca3af; font-size: 0.85rem;">Memvalidasi struktur pantun otomatis</p>
-        <p class="mb-1" style="color: #9ca3af; font-size: 0.85rem;">menggunakan Recursive Descent Parser.</p>
-        <p class="mt-3" style="background: linear-gradient(to right, #facc15, #fef08a); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: bold; margin-bottom: 0;">
-          CFG Pantun Validator
+  <!-- Bottom Features Section -->
+  <section class="bg-white text-black rounded-t-[2.5rem] md:rounded-t-[3.5rem] px-6 py-12 md:px-10 md:py-16 relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.2)] mt-auto w-full">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      
+      <!-- Card 1 -->
+      <div class="bg-[#F8F9FA] rounded-[2rem] p-8 flex flex-col items-center text-center relative h-64 border border-gray-100">
+        <h3 class="text-xl md:text-2xl uppercase leading-tight mb-2 font-black">
+          VALIDASI<br/>STRUKTUR PANTUN
+        </h3>
+        <p class="text-[10px] md:text-xs text-black/60 font-bold mb-auto">
+          menggunakan metode Context-Free Grammar
         </p>
-      </div>
-    </div>
-  </div>
-</section>
+        
+        <!-- Pill Graphic -->
+        <div class="relative w-full flex justify-center mt-6">
+          <div class="flex items-center bg-[#0038FF] rounded-2xl p-2 pr-16 text-white shadow-lg relative z-10">
+            <div class="w-8 h-8 bg-[#D2B48C] rounded-full mr-3 border border-white/30 overflow-hidden flex-shrink-0">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=D2B48C" alt="Avatar" class="w-full h-full object-cover" />
+            </div>
+            <div class="text-left">
+              <p class="text-[10px] font-bold leading-none m-0">pantun.cfg</p>
+              <p class="text-[8px] text-white/70 leading-none mt-1 m-0">Valid 100%</p>
+            </div>
+          </div>
+          <div class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#CCFF00] text-black font-black text-[10px] px-3 py-2 rounded-xl z-20 shadow-md">
+            SUKSES
+          </div>
+        </div>
 
-<!-- ============ FEATURES ============ -->
-<section class="container py-5">
-  <div class="text-center mb-5">
-    <h2 class="section-title">Fitur Utama</h2>
-    <p class="text-muted mt-3">Semua yang Anda butuhkan untuk memahami dan menguji validitas pantun secara formal.</p>
-  </div>
-
-  <div class="row g-4">
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100 p-4" style="background: rgba(20, 15, 35, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
-        <div class="feature-icon" style="background: rgba(255,255,255,0.1); color: #a5b4fc;"><i class="bi bi-check2-square"></i></div>
-        <h5 class="fw-bold">Validasi Pantun</h5>
-        <p class="text-muted mb-0">Masukkan pantun dan dapatkan status Valid/Invalid lengkap dengan alasannya.</p>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100 p-4" style="background: rgba(20, 15, 35, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
-        <div class="feature-icon" style="background: rgba(255,255,255,0.1); color: #a5b4fc;"><i class="bi bi-diagram-2"></i></div>
-        <h5 class="fw-bold">Grammar CFG Transparan</h5>
-        <p class="text-muted mb-0">Seluruh aturan produksi CFG ditampilkan secara terbuka dan mudah dipahami.</p>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100 p-4" style="background: rgba(20, 15, 35, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
-        <div class="feature-icon" style="background: rgba(255,255,255,0.1); color: #a5b4fc;"><i class="bi bi-diagram-3"></i></div>
-        <h5 class="fw-bold">Recursive Descent Parser</h5>
-        <p class="text-muted mb-0">Proses parsing top-down ditelusuri langkah demi langkah, bukan sekadar regex.</p>
-      </div>
-    </div>
-    <div class="col-md-6 col-lg-3">
-      <div class="card h-100 p-4" style="background: rgba(20, 15, 35, 0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); color: #fff;">
-        <div class="feature-icon" style="background: rgba(255,255,255,0.1); color: #a5b4fc;"><i class="bi bi-clock-history"></i></div>
-        <h5 class="fw-bold">Riwayat Validasi</h5>
-        <p class="text-muted mb-0">Setiap hasil validasi tersimpan otomatis ke database SQLite untuk ditinjau ulang.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ APA ITU CFG ============ -->
-<section class="py-5" style="position: relative;">
-  <div class="container">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-6">
-        <h2 class="section-title mb-4">Apa itu Context-Free Grammar?</h2>
-        <p class="text-light">
-          Context-Free Grammar (CFG) adalah salah satu formalisme dalam Teori
-          Bahasa dan Otomata yang mendefinisikan struktur suatu bahasa melalui
-          sekumpulan aturan produksi. Setiap kalimat dalam bahasa tersebut
-          dapat diturunkan (di-<em>derive</em>) dari simbol awal (start symbol)
-          menggunakan aturan-aturan tersebut secara rekursif.
-        </p>
-        <p class="mb-0 text-light">
-          Pada aplikasi ini, struktur pantun (4 baris: 2 baris Sampiran dan 2
-          baris Isi, masing-masing 4–12 kata) dimodelkan sebagai sebuah CFG,
-          lalu divalidasi menggunakan <strong>Recursive Descent Parser</strong>
-          — sebuah teknik Top-Down Parsing klasik.
-        </p>
-      </div>
-      <div class="col-lg-6">
-        <div class="grammar-box" style="background: rgba(15, 10, 25, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);">
-<pre class="mb-0">Pantun    -&gt; Sampiran Isi
-Sampiran  -&gt; Baris Baris
-Isi       -&gt; Baris Baris
-Baris     -&gt; Kalimat
-Kalimat   -&gt; Kata Kalimat | Kata</pre>
+        <!-- Arrow pointing to next card -->
+        <div class="hidden md:block absolute -right-12 bottom-8 w-16 h-16 z-30">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-black stroke-current overflow-visible" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20,80 Q 40,20 80,40" />
+            <path d="M60,20 L80,40 L50,60" />
+          </svg>
         </div>
       </div>
+
+      <!-- Card 2 -->
+      <div class="bg-[#F8F9FA] rounded-[2rem] p-8 flex flex-col items-center text-center relative h-64 border border-gray-100">
+        <h3 class="text-xl md:text-2xl uppercase leading-tight mb-2 font-black">
+          SAMPIRAN &<br/>ISI PANTUN
+        </h3>
+        <p class="text-[10px] md:text-xs text-black/60 font-bold mb-auto">
+          dianalisis baris demi baris secara otomatis
+        </p>
+        
+        <!-- Pill Graphic -->
+        <div class="relative w-full flex justify-center mt-6">
+          <div class="flex items-center bg-[#0038FF] rounded-full p-1.5 text-white shadow-lg">
+            <div class="bg-white/20 text-white font-bold text-sm px-4 py-2 rounded-full mr-2">
+              Baris
+            </div>
+            <div class="font-bold text-xs px-4">
+              4 / 4
+            </div>
+          </div>
+          
+          <!-- Small floating green pill -->
+          <div class="absolute -bottom-6 right-1/3 bg-[#CCFF00] rounded-full p-2.5 shadow-lg transform rotate-12 z-20">
+             <svg viewBox="0 0 24 24" class="w-4 h-4 text-black stroke-current" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+             </svg>
+          </div>
+        </div>
+
+        <!-- Arrow pointing to next card -->
+        <div class="hidden md:block absolute -right-12 bottom-8 w-16 h-16 z-30">
+          <svg viewBox="0 0 100 100" class="w-full h-full text-black stroke-current overflow-visible" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20,80 Q 40,20 80,40" />
+            <path d="M60,20 L80,40 L50,60" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-[#F8F9FA] rounded-[2rem] p-8 flex flex-col items-center text-center relative h-64 border border-gray-100">
+        <h3 class="text-xl md:text-2xl uppercase leading-tight mb-2 font-black">
+          LIHAT HASIL<br/>POHON PENURUNAN
+        </h3>
+        <p class="text-[10px] md:text-xs text-black/60 font-bold mb-auto">
+          sintaks yang terbentuk jelas dan transparan
+        </p>
+        
+        <!-- Pill Graphic -->
+        <div class="flex flex-col items-center bg-[#CCFF00] rounded-[2rem] px-6 py-4 text-black shadow-lg mt-6 relative w-full max-w-[200px]">
+          <p class="text-[9px] font-bold uppercase tracking-wider mb-1 m-0">STATUS CFG</p>
+          <p class="text-xl font-black m-0">DITERIMA</p>
+          
+          <!-- Speech bubble tail -->
+          <div class="absolute -bottom-2 left-8 w-5 h-5 bg-[#CCFF00] transform rotate-45"></div>
+        </div>
+      </div>
+
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ CTA ============ -->
-<section class="container py-5 text-center mb-5">
-  <h3 class="fw-bold mb-3">Siap menguji pantun Anda?</h3>
-  <p class="text-muted mb-4">Coba validasi pantun favorit Anda dan lihat bagaimana parser menelusuri strukturnya.</p>
-  <a href="{{ url_for('validate') }}" class="btn btn-gradient btn-lg px-5" style="box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);">
-    <i class="bi bi-arrow-right-circle me-2"></i>Coba Sekarang
-  </a>
-</section>
+</div>
+
+<style>
+  @keyframes float1 {
+    0%, 100% { transform: translateY(0) rotate(-12deg); }
+    50% { transform: translateY(-15px) rotate(-12deg); }
+  }
+  @keyframes float2 {
+    0%, 100% { transform: translateY(0) rotate(12deg); }
+    50% { transform: translateY(-20px) rotate(12deg); }
+  }
+</style>
 {% endblock %}
-
